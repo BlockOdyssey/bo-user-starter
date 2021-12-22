@@ -1,0 +1,35 @@
+{
+    "name": "bo-user-starter",
+    "version": "1.0.0",
+    "author": {
+        "name": "blockodyssey",
+        "email": "dev@blockodyssey.io",
+        "url": "https://blockodyssey.io/"
+    },
+    "homepage": "https://github.com/BlockOdyssey/bo-user-starter",
+    "bugs": {
+        "url": "https://github.com/BlockOdyssey/bo-user-starter/issues",
+        "email": "dev@blockodyssey.io"
+    },
+    "description": "블록오디세이에서 사용하는 user starter입니다.",
+    "keywords": [
+        "blockodyssey"
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BlockOdyssey/bo-user-starter.git"
+    },
+    "main": "index.js",
+    "bin": {
+        "bo-user-starter": "bin/index.js"
+    },
+    "scripts": {
+        "start": "node bin/index.js",
+        "bo-user-starter": "node bin/index.js"
+    },
+    "dependencies": {
+        "edit-json-file": "^1.6.0",
+        "ncp": "^2.0.0"
+    }
+}

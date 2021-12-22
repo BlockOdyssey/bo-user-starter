@@ -1,0 +1,37 @@
+@import "style/custom.scss";
+
+.container {
+    width: 100%;
+    border-top: 1px solid;
+    border-color: $border-color;
+    background-color: $border-color;
+    position: absolute;
+    bottom: 0;
+    height: 300px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: $contents-width;
+    padding-top: 40px;
+}
+
+footer > * {
+    flex-basis: 100%;
+    font-size: 20px;
+    color: $white-color;
+}
+
+.leftFooter {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.leftText {
+}
+.rightText {
+    text-align: right;
+}

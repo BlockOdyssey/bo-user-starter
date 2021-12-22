@@ -1,0 +1,95 @@
+@import "style/custom.scss";
+
+.container {
+    width: 100%;
+    border-bottom: 1px solid;
+    border-color: $border-color;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: $contents-width;
+    height: $header-height;
+    align-items: center;
+}
+
+.nav {
+    display: flex;
+}
+
+.logo {
+    display: flex;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo a {
+    color: $black-color;
+}
+
+.logoImg {
+    width: 200px;
+    height: 100%;
+}
+
+.navBar {
+    margin-left: 80px;
+}
+.navBar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    line-height: $header-height;
+}
+
+.navBar li {
+    float: left;
+}
+
+.navBar li a {
+    display: block;
+    width: 80px;
+    height: $header-height;
+    color: $black-color;
+    text-align: center;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navBar li a:hover {
+    background-color: $border-color;
+    color: $white-color;
+}
+
+.navBar .active {
+    background-color: #04aa6d;
+}
+
+.login {
+    font-size: 18px;
+    height: 100%;
+    text-align: right;
+    line-height: $header-height;
+    color: $black-color;
+    cursor: pointer;
+}
+
+.login__modal {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.login__form {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+}
+
+.login__form form input {
+    margin-bottom: 20px;
+}
