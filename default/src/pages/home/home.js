@@ -1,52 +1,17 @@
-import axios from "axios";
+import { getMovieList } from "api/movieApi";
 import styles from "pages/home/home.module.scss";
-import { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { mode, api, api_key } from "api/Url";
-import { useForm } from "react-hook-form";
+import Movies from "./Components/Movies";
 
+// 페이지의 index 컴포넌트에선(여기선 home.js) 페이지에 필요한 컴포넌트를 import  하고
+// 컴포넌트들 간의 layout을 설정하기 위한 css만 입력합니다.
+// 또한 api 요청의 경우 페이지의 상단에서 선언하고 자식 컴포넌트에 전달합니다.
 const Home = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data) => setResult(JSON.stringify(data));
-    const [result, setResult] = useState("");
-
-    const { data, isLoading } = useQuery("catfact", () => getData("https://api.themoviedb.org/3/movie/now_playing"));
-
-    const getData = (url) => {
-        return axios
-            .get(url, {
-                params: {
-                    api_key,
-                    page: 1
-                }
-            })
-            .then((res) => res.data.results);
-    };
-
-    useEffect(() => {
-        // console.log(data);
-    }, [data]);
-
+    const { data, isLoading } = useQuery("getMovieList", () => getMovieList(), { select: (res) => res.results });
     return (
-        <>
-            <div className={styles.category}>
-                <div className={styles.category__title}>
-                    <div>Now Playing</div>
-                    <div>+ More</div>
-                </div>
-                <div className={styles.contents__list}>
-                    {isLoading && <p>Loading...</p>}
-                    {data?.map((e, i) => (
-                        <figure className={styles.contents__item} key={i}>
-                            <img src={`https://image.tmdb.org/t/p/w200/${e.poster_path}`} />
-                            <div className={styles.contents__title} key={i}>
-                                {e.original_title}
-                            </div>
-                        </figure>
-                    ))}
-                </div>
-            </div>
-        </>
+        <div className={styles.container}>
+            <Movies isLoading={isLoading} data={data} />
+        </div>
     );
 };
 
