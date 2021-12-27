@@ -1,11 +1,5 @@
-import styles from "pages/login/login.module.scss";
-
-const Login = () => {
-    return (
-        <div className={styles.container}>
-            <div className={styles.menuBtn}>Login</div>
-        </div>
-    );
+const login = () => {
+    return <div>login</div>;
 };
 
-export default Login;
+export default login;
