@@ -5,12 +5,11 @@
     border-top: 1px solid;
     border-color: $border-color;
     background-color: $border-color;
-    position: absolute;
-    bottom: 0;
+    margin-top: 80px;
     height: 300px;
 }
 
-footer {
+.container > footer {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;

@@ -6,7 +6,7 @@
     border-color: $border-color;
 }
 
-header {
+.container > header {
     display: flex;
     justify-content: space-between;
     margin: 0 auto;
@@ -70,12 +70,18 @@ header {
 }
 
 .login {
+    height: 100%;
+}
+
+.login button {
     font-size: 18px;
     height: 100%;
     text-align: right;
     line-height: $header-height;
     color: $black-color;
     cursor: pointer;
+    border: 0;
+    background-color: transparent;
 }
 
 .login__modal {
