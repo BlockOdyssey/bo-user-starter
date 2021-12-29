@@ -22,7 +22,7 @@ instance.interceptors.response.use(
 
 // 아래에 API 별로 정의합니다. 항목이 많아질 경우 폴더를 만들어서 기능별로 분류해주세요.
 export const getMovieNowPlayingList = () =>
-    instance.get(`${"3/movie/now_playing"}`, {
+    instance.get(`3/movie/now_playing`, {
         params: {
             api_key,
             page: 1
@@ -30,9 +30,16 @@ export const getMovieNowPlayingList = () =>
     });
 
 export const getMoviePopularList = () =>
-    instance.get(`${"3/movie/popular"}`, {
+    instance.get(`3/movie/popular`, {
         params: {
             api_key,
             page: 1
+        }
+    });
+
+export const getMovie = (idx) =>
+    instance.get(`3/movie/${idx}`, {
+        params: {
+            api_key
         }
     });

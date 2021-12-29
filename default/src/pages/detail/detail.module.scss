@@ -1,0 +1,55 @@
+@import "style/custom.scss";
+
+.container {
+    height: 100%;
+    margin-top: 20px;
+}
+
+.introduceContainer {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 40px;
+}
+
+.imageArea {
+    flex: 1;
+}
+.movieTextArea {
+    flex: 2;
+}
+
+.imageArea img {
+    height: 500px;
+}
+
+.movieTextArea {
+    width: 50%;
+}
+
+.movieTitle {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+.movieStatus {
+    font-size: 25px;
+    color: darkgray;
+}
+
+.movieOverView {
+    font-size: 20px;
+}
+
+.movieInfoList {
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+.movieInfoList li {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.movieInfoList li span {
+    margin-right: 10px;
+}

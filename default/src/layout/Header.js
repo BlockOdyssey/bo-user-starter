@@ -3,6 +3,7 @@ import logo from "assets/images/logo.png";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 export default function Header() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -25,20 +26,20 @@ export default function Header() {
             <header>
                 <div className={style.nav}>
                     <div className={style.logo}>
-                        <a href="/">
+                        <Link to="/">
                             <img src={logo} className={style.logoImg} />
-                        </a>
+                        </Link>
                     </div>
                     <nav className={style.navBar}>
                         <ul>
                             <li>
-                                <a href="/movie">Movie</a>
+                                <Link to="/movie">Movie</Link>
                             </li>
                             <li>
-                                <a href="/tv">TV</a>
+                                <Link to="/tv">TV</Link>
                             </li>
                             <li>
-                                <a href="/search">Search</a>
+                                <Link to="/search">Search</Link>
                             </li>
                         </ul>
                     </nav>
