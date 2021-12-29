@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./movies.module.scss";
 
-const Movies = ({ label, isLoading, data, func }) => {
+const Movies = ({ label, isLoading, data }) => {
     console.log("data :: ", data);
     return (
         <div className={styles.category}>
@@ -17,8 +17,8 @@ const Movies = ({ label, isLoading, data, func }) => {
                     <p>Loading...</p>
                 ) : (
                     data?.map((e, i) => (
-                        <Link to={`/movie/${e.id}`}>
-                            <figure className={styles.contents__item} key={i}>
+                        <Link to={`/movie/${e.id}`} key={i}>
+                            <figure className={styles.contents__item}>
                                 <img src={`https://image.tmdb.org/t/p/w200/${e.poster_path}`} alt="poster" />
                                 <div className={styles.contents__title} key={i}>
                                     {e.original_title}

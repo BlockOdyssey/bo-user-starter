@@ -1,4 +1,4 @@
-import { getMovie } from "api/movieApi";
+import { getData, api_key } from "api/instance";
 import styles from "pages/detail/detail.module.scss";
 import { useQuery } from "react-query";
 import { useParams } from "react-router-dom";
@@ -10,9 +10,11 @@ const Detail = () => {
     const params = useParams();
     const idx = params.idx;
 
-    const { data, isLoading } = useQuery(["getMovie", idx], () => getMovie(idx));
-
-    console.log(data);
+    const { data, isLoading } = useQuery(["getMovie", idx], () =>
+        getData(`3/movie/${idx}`, {
+            api_key
+        })
+    );
 
     return (
         <div className={styles.container}>
