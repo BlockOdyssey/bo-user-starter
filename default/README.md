@@ -2,7 +2,7 @@
 
 :smiley: 블록오디세이를 위한 React 사용자 Boilerplate v1입니다. :smiley:
 
-## Project Main Features
+## 프로젝트 주요 기능
 
 -   **STYLING** : [scss](https://sass-lang.com/guide "sass/scss")
 -   **HTTP CLIENT** : [axios](https://github.com/axios/axios "axios")
@@ -12,32 +12,32 @@
 -   **FORM** : [react-hook-form](https://react-hook-form.com/get-started "react-hook-form")
 -   **TYPE CHECK** : [prop-types](https://github.com/facebook/prop-types "prop-types")
 
-## Project Installation
+## 프로젝트 설치
 
 <pre><code> $ npx bo-user-starter projectname </code></pre>
 
 :fire: `npm i bo-user-starter` 명령어를 사용하면 프로젝트가 정상적으로 설치되지 않습니다. :fire:
 
-## Getting Started
+## 시작하기
 
-### Install Dependencies
+### 의존성 패키지 설치
 
  <pre><code> $ cd projectname
 
  $ npm install
 </code></pre>
 
-### Before Run
+### 실행 전에
 
- <pre>Create the .env file in the root of your project</pre>
+ <pre>프로젝트의 최상단 경로에 .env 파일을 추가해주세요.</pre>
 
-### Project Run
+### 프로젝트 실행
 
  <pre><code>$ npm start </code></pre>
 
 ---
 
-## Project Structure
+## 프로젝트 구조
 
 ```
  .
