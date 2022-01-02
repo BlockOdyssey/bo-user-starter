@@ -1,3 +1,107 @@
 # bo-user-starter
 
 :smiley: 블록오디세이를 위한 React 사용자 Boilerplate v1입니다. :smiley:
+
+## Project Main Features
+
+-   **STYLING** : [scss](https://sass-lang.com/guide "sass/scss")
+-   **HTTP CLIENT** : [axios](https://github.com/axios/axios "axios")
+-   **SERVER STATE DATA MANAGEMENT** : [react-query](https://react-query.tanstack.com/ "react-query")
+-   **ROUTING AND NAVIGATION** : [react-router-dom](https://reactrouter.com/web/guides/quick-start "react-router-dom")
+-   **STATE MANAGEMENT** : [@reduxjs/toolkit](https://redux-toolkit.js.org/ "@reduxjs/toolkit")
+-   **FORM** : [react-hook-form](https://react-hook-form.com/get-started "react-hook-form")
+-   **TYPE CHECK** : [prop-types](https://github.com/facebook/prop-types "prop-types")
+
+## Project Installation
+
+<pre><code> $ npx bo-user-starter projectname </code></pre>
+
+:fire: `npm i bo-user-starter` 명령어를 사용하면 프로젝트가 정상적으로 설치되지 않습니다. :fire:
+
+## Getting Started
+
+### Install Dependencies
+
+ <pre><code> $ cd projectname
+
+ $ npm install
+</code></pre>
+
+### Before Run
+
+ <pre>Create the .env file in the root of your project</pre>
+
+### Project Run
+
+ <pre><code>$ npm start </code></pre>
+
+---
+
+## Project Structure
+
+```
+ .
+ ┣ .github
+ ┃ ┣ ISSUE_TEMPLATE
+ ┃ ┃ ┣ bug_report.md
+ ┃ ┃ ┗ feature_request.md
+ ┃ ┗ pull_request_template.md
+ ┣ public
+ ┃ ┣ favicon.ico
+ ┃ ┣ index.html
+ ┃ ┣ logo512.png
+ ┃ ┣ manifest.json
+ ┃ ┗ robots.txt
+ ┣ src
+ ┃ ┣ api
+ ┃ ┃ ┗ instance.js
+ ┃ ┣ app
+ ┃ ┃ ┣ App.js
+ ┃ ┃ ┣ rootReducer.js
+ ┃ ┃ ┗ store.js
+ ┃ ┣ assets
+ ┃ ┃ ┣ fonts
+ ┃ ┃ ┃ ┗ NotoSansKR-Regular.otf
+ ┃ ┃ ┣ icons
+ ┃ ┃ ┃ ┗ example.svg
+ ┃ ┃ ┗ images
+ ┃ ┃ ┃ ┗ logo.png
+ ┃ ┣ layout
+ ┃ ┃ ┣ Footer.js
+ ┃ ┃ ┣ Header.js
+ ┃ ┃ ┣ Layout.js
+ ┃ ┃ ┣ footer.module.scss
+ ┃ ┃ ┣ header.module.scss
+ ┃ ┃ ┗ layout.module.scss
+ ┃ ┣ pages
+ ┃ ┃ ┣ detail
+ ┃ ┃ ┃ ┣ detail.js
+ ┃ ┃ ┃ ┗ detail.module.scss
+ ┃ ┃ ┣ home
+ ┃ ┃ ┃ ┣ Components
+ ┃ ┃ ┃ ┃ ┣ Movies.js
+ ┃ ┃ ┃ ┃ ┗ movies.module.scss
+ ┃ ┃ ┃ ┣ home.js
+ ┃ ┃ ┃ ┗ home.module.scss
+ ┃ ┃ ┣ login
+ ┃ ┃ ┃ ┗ login.js
+    ... 생략 ...
+ ┃ ┃ ┗ page404.js
+ ┃ ┣ slices
+ ┃ ┃ ┣ loginSlice.js
+ ┃ ┃ ┣ menuSlice.js
+ ┃ ┃ ┗ modalSlice.js
+ ┃ ┣ style
+ ┃ ┃ ┣ custom.scss
+ ┃ ┃ ┗ index.scss
+ ┃ ┣ utils
+ ┃ ┃ ┗ common.js
+ ┃ ┗ index.js
+ ┣ .env.local
+ ┣ .gitignore
+ ┣ .prettierrc
+ ┣ README.md
+ ┣ jsconfig.json
+ ┣ package-lock.json
+ ┗ package.json
+```
