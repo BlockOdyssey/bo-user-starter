@@ -19,30 +19,37 @@ instance.interceptors.response.use(
         const originalRequest = err.config;
 
         if (err.response.status === 401 && !originalRequest._retry) {
+            // 무한반복을 피하기 위한 로직
             originalRequest._retry = true;
+
+            // 토큰 갱신 로직 실행
             return axios
                 .post("/auth/token", {
                     refresh_token: _getRefreshToken()
                 })
                 .then(async (res) => {
                     if (res.status === 201) {
-                        // 1) put token to LocalStorage
+                        // 갱신된 토큰을 입력
                         _setToken(res.data);
 
-                        // 2) Change Authorization header
+                        // header에다가 갱신된 토큰을 다시 입력
                         originalRequest.headers.token = _getAccessToken();
 
-                        // 3) return originalRequest object with Axios.
+                        // 재요청
                         return axios(originalRequest);
                     }
                 })
                 .catch((error) => {
+                    // refresh 토큰도 만료됐을 경우 에러가 날 것으로 추정됨.
                     console.log(error);
+                    // 토큰 초기화
                     _clearToken();
-                });
-        }
 
-        return Promise.reject({ statusCode: err.response?.status || 500, message: err.response?.status ? err.message : "네트워크 에러" });
+                    // 개발할때 로그인 페이지로 이동하는 방법에 대해서 구현해야 함.
+                });
+        } else {
+            return Promise.reject({ statusCode: err.response?.status || 500, message: err.response?.status ? err.message : "네트워크 에러" });
+        }
     }
 );
 
