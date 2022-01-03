@@ -3,7 +3,7 @@ import Detail from "pages/detail/detail";
 import Home from "pages/home/home";
 import Login from "pages/login/login";
 import Movie from "pages/movie/movie";
-import Page404 from "pages/page404";
+import Page404 from "pages/404/page404";
 import Profile from "pages/profile/profile";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
