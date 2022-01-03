@@ -19,36 +19,41 @@ instance.interceptors.response.use(
     }
 );
 
-export const getData = async (url, params, tokenFlag = false) => {
+export const getData = async (url, params = {}, tokenFlag = false) => {
+    console.log(instance.get);
     let headers = {};
+    let token = localStorage.getItem("token"); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
 
-    if (tokenFlag === true) headers["token"] = JSON.parse(localStorage.getItem("token"));
+    if (tokenFlag === true) headers["token"] = token;
 
     return await instance.get(`${url}`, { params, headers });
 };
 
-export const postData = async (url, body, fileFlag = false, tokenFlag = false) => {
+export const postData = async (url, body = {}, fileFlag = false, tokenFlag = false) => {
     let headers = {};
+    let token = localStorage.getItem("token"); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
 
     if (fileFlag === true) headers["Content-Type"] = "multipart/form-data";
-    if (tokenFlag === true) headers["token"] = JSON.parse(localStorage.getItem("token"));
+    if (tokenFlag === true) headers["token"] = token;
 
     return await instance.post(`${url}`, body, { headers });
 };
 
-export const putData = async (url, body, fileFlag = false, tokenFlag = false) => {
+export const putData = async (url, body = {}, fileFlag = false, tokenFlag = false) => {
     let headers = {};
+    let token = localStorage.getItem("token"); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
 
     if (fileFlag === true) headers["Content-Type"] = "multipart/form-data";
-    if (tokenFlag === true) headers["token"] = JSON.parse(localStorage.getItem("token"));
+    if (tokenFlag === true) headers["token"] = token;
 
     return await instance.put(`${url}`, body, { headers });
 };
 
-export const deleteData = async (url, body, tokenFlag = false) => {
+export const deleteData = async (url, body = {}, tokenFlag = false) => {
     let headers = {};
+    let token = localStorage.getItem("token"); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
 
-    if (tokenFlag === true) headers["token"] = JSON.parse(localStorage.getItem("token"));
+    if (tokenFlag === true) headers["token"] = token;
 
     return await instance.delete(`${url}`, { data: body, headers });
 };
