@@ -15,6 +15,9 @@ instance.interceptors.request.use((config) => {
     if (config.tokenFlag === true) config.headers["token"] = _getAccessToken();
     if (config.fileFlag === true) config.headers["Content-Type"] = "multipart/form-data";
 
+    delete config.tokenFlag;
+    delete config.fileFlag;
+
     return config;
 });
 
