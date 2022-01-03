@@ -1,4 +1,5 @@
 import axios from "axios";
+import { _clearToken, _getAccessToken, _getRefreshToken, _setToken } from "utils/localStorageService";
 
 export const api_key = process.env.REACT_APP_API_KEY;
 
@@ -15,6 +16,32 @@ instance.interceptors.response.use(
         return response.data;
     },
     (err) => {
+        const originalRequest = err.config;
+
+        if (err.response.status === 401 && !originalRequest._retry) {
+            originalRequest._retry = true;
+            return axios
+                .post("/auth/token", {
+                    refresh_token: _getRefreshToken()
+                })
+                .then(async (res) => {
+                    if (res.status === 201) {
+                        // 1) put token to LocalStorage
+                        _setToken(res.data);
+
+                        // 2) Change Authorization header
+                        originalRequest.headers.token = _getAccessToken();
+
+                        // 3) return originalRequest object with Axios.
+                        return axios(originalRequest);
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    _clearToken();
+                });
+        }
+
         return Promise.reject({ statusCode: err.response?.status || 500, message: err.response?.status ? err.message : "네트워크 에러" });
     }
 );
@@ -22,7 +49,7 @@ instance.interceptors.response.use(
 export const getData = async (url, params = {}, tokenFlag = false) => {
     console.log(instance.get);
     let headers = {};
-    let token = localStorage.getItem("token"); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
+    let token = _getAccessToken(); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
 
     if (tokenFlag === true) headers["token"] = token;
 
@@ -31,7 +58,7 @@ export const getData = async (url, params = {}, tokenFlag = false) => {
 
 export const postData = async (url, body = {}, fileFlag = false, tokenFlag = false) => {
     let headers = {};
-    let token = localStorage.getItem("token"); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
+    let token = _getAccessToken(); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
 
     if (fileFlag === true) headers["Content-Type"] = "multipart/form-data";
     if (tokenFlag === true) headers["token"] = token;
@@ -41,7 +68,7 @@ export const postData = async (url, body = {}, fileFlag = false, tokenFlag = fal
 
 export const putData = async (url, body = {}, fileFlag = false, tokenFlag = false) => {
     let headers = {};
-    let token = localStorage.getItem("token"); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
+    let token = _getAccessToken(); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
 
     if (fileFlag === true) headers["Content-Type"] = "multipart/form-data";
     if (tokenFlag === true) headers["token"] = token;
@@ -51,7 +78,7 @@ export const putData = async (url, body = {}, fileFlag = false, tokenFlag = fals
 
 export const deleteData = async (url, body = {}, tokenFlag = false) => {
     let headers = {};
-    let token = localStorage.getItem("token"); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
+    let token = _getAccessToken(); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
 
     if (tokenFlag === true) headers["token"] = token;
 
