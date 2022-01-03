@@ -11,6 +11,13 @@ const instance = axios.create({
 instance.defaults.headers.common["Content-Type"] = "application/json; charset=UTF-8";
 instance.defaults.headers.common["Accept"] = "application/json";
 // instance.defaults.withCredentials = true; 토큰방식이 아닌 세션을 사용할 경우
+instance.interceptors.request.use((config) => {
+    if (config.tokenFlag === true) config.headers["token"] = _getAccessToken();
+    if (config.fileFlag === true) config.headers["Content-Type"] = "multipart/form-data";
+
+    return config;
+});
+
 instance.interceptors.response.use(
     (response) => {
         return response.data;
@@ -18,7 +25,7 @@ instance.interceptors.response.use(
     (err) => {
         const originalRequest = err.config;
 
-        if (err.response.status === 401 && !originalRequest._retry) {
+        if (err.response?.status === 401 && !originalRequest._retry) {
             // 무한반복을 피하기 위한 로직
             originalRequest._retry = true;
 
@@ -53,41 +60,10 @@ instance.interceptors.response.use(
     }
 );
 
-export const getData = async (url, params = {}, tokenFlag = false) => {
-    console.log(instance.get);
-    let headers = {};
-    let token = _getAccessToken(); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
+export const getData = async (url, params = {}, tokenFlag = false) => await instance.get(`${url}`, { params, tokenFlag });
 
-    if (tokenFlag === true) headers["token"] = token;
+export const postData = async (url, body = {}, fileFlag = false, tokenFlag = false) => await instance.post(`${url}`, body, { fileFlag, tokenFlag });
 
-    return await instance.get(`${url}`, { params, headers });
-};
+export const putData = async (url, body = {}, fileFlag = false, tokenFlag = false) => await instance.put(`${url}`, body, { fileFlag, tokenFlag });
 
-export const postData = async (url, body = {}, fileFlag = false, tokenFlag = false) => {
-    let headers = {};
-    let token = _getAccessToken(); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
-
-    if (fileFlag === true) headers["Content-Type"] = "multipart/form-data";
-    if (tokenFlag === true) headers["token"] = token;
-
-    return await instance.post(`${url}`, body, { headers });
-};
-
-export const putData = async (url, body = {}, fileFlag = false, tokenFlag = false) => {
-    let headers = {};
-    let token = _getAccessToken(); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
-
-    if (fileFlag === true) headers["Content-Type"] = "multipart/form-data";
-    if (tokenFlag === true) headers["token"] = token;
-
-    return await instance.put(`${url}`, body, { headers });
-};
-
-export const deleteData = async (url, body = {}, tokenFlag = false) => {
-    let headers = {};
-    let token = _getAccessToken(); // token을 저장하는 형태에 맞춰서 JSON.parse를 사용하세요.
-
-    if (tokenFlag === true) headers["token"] = token;
-
-    return await instance.delete(`${url}`, { data: body, headers });
-};
+export const deleteData = async (url, body = {}, tokenFlag = false) => await instance.delete(`${url}`, { data: body, tokenFlag });
