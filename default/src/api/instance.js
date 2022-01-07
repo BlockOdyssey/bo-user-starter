@@ -18,8 +18,10 @@ instance.defaults.headers.common["Content-Type"] = "application/json; charset=UT
 instance.defaults.headers.common["Accept"] = "application/json";
 // instance.defaults.withCredentials = true; 토큰방식이 아닌 세션을 사용할 경우
 instance.interceptors.request.use((config) => {
-    if (config.tokenFlag === true) config.headers.Authorization = `Bearer ${_getAccessToken()}`;
-    if (config.fileFlag === true) config.headers["Content-Type"] = "multipart/form-data";
+    let { tokenFlag, fileFlag } = config;
+
+    if (tokenFlag === true) config.headers.Authorization = `Bearer ${_getAccessToken()}`;
+    if (fileFlag === true) config.headers["Content-Type"] = "multipart/form-data";
 
     delete config.tokenFlag;
     delete config.fileFlag;
@@ -54,7 +56,7 @@ instance.interceptors.response.use(
                             isTokenRefreshing = false;
 
                             // 저장된 API 요청에 새로운 함수를 주면서 재요청
-                            await onTokenRefreshed(accessToken);
+                            onTokenRefreshed(accessToken);
 
                             refreshSubscribers = [];
                         }
