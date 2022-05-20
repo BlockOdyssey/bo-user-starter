@@ -4,11 +4,11 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Layout from 'layout';
 import Page404 from 'pages/404';
-import Detail from 'pages/DetailPage';
-import Home from 'pages/HomePage';
-import Login from 'pages/LoginPage';
-import Movie from 'pages/MoviePage';
-import Profile from 'pages/ProfilePage';
+import Detail from 'pages/Detail';
+import Home from 'pages/Home';
+import Login from 'pages/Login';
+import Movie from 'pages/Movie';
+import Profile from 'pages/Profile';
 
 import { isExpired, isUpdateRequired, clearToken, getAccessToken, getRefreshToken } from 'utils/localStorageService';
 

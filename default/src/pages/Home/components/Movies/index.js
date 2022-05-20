@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import 'pages/HomePage/components/movies.scss';
+import 'pages/Home/components/Movies/movies.scss';
 
 const imageList = {
     'Now Playing': {
