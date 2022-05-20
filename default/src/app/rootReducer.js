@@ -1,8 +1,8 @@
-import { combineReducers } from "@reduxjs/toolkit";
+import { combineReducers } from '@reduxjs/toolkit';
 
-import loginReducer from "slices/loginSlice";
-import menuReducer from "slices/menuSlice";
-import modalReducer from "slices/modalSlice";
+import loginReducer from 'slices/loginSlice';
+import menuReducer from 'slices/menuSlice';
+import modalReducer from 'slices/modalSlice';
 
 const rootReducer = combineReducers({
     login: loginReducer,

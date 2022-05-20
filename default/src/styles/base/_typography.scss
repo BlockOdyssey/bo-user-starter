@@ -1,0 +1,5 @@
+@use '/src/styles/abstracts/variables' as *;
+
+body {
+    font-family: $default-font;
+}

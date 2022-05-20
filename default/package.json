@@ -4,22 +4,40 @@
     "repository": {},
     "license": "",
     "dependencies": {
-        "@reduxjs/toolkit": "^1.7.1",
+        "@fontsource/noto-sans-kr": "^4.5.10",
+        "@hookform/resolvers": "^2.8.10",
+        "@reduxjs/toolkit": "^1.8.1",
         "axios": "^0.24.0",
-        "moment": "^2.29.1",
-        "prop-types": "^15.8.0",
+        "dayjs": "^1.11.2",
+        "prop-types": "^15.8.1",
         "react": "^17.0.2",
         "react-dom": "^17.0.2",
-        "react-hook-form": "^7.22.2",
-        "react-modal": "^3.14.4",
-        "react-query": "^3.34.0",
-        "react-redux": "^7.2.6",
-        "react-router-dom": "^6.0.2",
+        "react-hook-form": "^7.31.1",
+        "react-modal": "^3.15.1",
+        "react-query": "^3.39.0",
+        "react-redux": "^7.2.8",
+        "react-router-dom": "^6.3.0",
         "react-scripts": "^5.0.0",
-        "sass": "^1.43.5"
+        "sass": "^1.51.0",
+        "yup": "^0.32.11"
     },
     "devDependencies": {
-        "env-cmd": "^10.1.0"
+        "@redux-devtools/extension": "^3.2.2",
+        "dotenv": "^10.0.0",
+        "env-cmd": "^10.1.0",
+        "eslint": "^8.2.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-prettier": "^4.0.0",
+        "eslint-plugin-react": "^7.29.4",
+        "eslint-plugin-react-hooks": "^4.4.0",
+        "prettier": "^2.6.2",
+        "stylelint": "^14.8.2",
+        "stylelint-config-prettier-scss": "^0.0.1",
+        "stylelint-config-standard-scss": "^3.0.0",
+        "stylelint-order": "^5.0.0"
     },
     "scripts": {
         "start": "env-cmd -f .env.local react-scripts start",
@@ -27,7 +45,11 @@
         "start:prod": "env-cmd -f .env.production react-scripts start",
         "build": "env-cmd -f .env.production react-scripts build",
         "test": "react-scripts test",
-        "eject": "react-scripts eject"
+        "eject": "react-scripts eject",
+        "lint": "eslint './src/**/*.{ts,tsx,js,jsx}'",
+        "lint:fix": "eslint --fix './src/**/*.{ts,tsx,js,jsx}'",
+        "lint:css": "stylelint --fix './src/**/*.{css,scss,sass}'",
+        "format": "prettier --write './src/**/*.{ts,tsx,js,jsx}'"
     },
     "eslintConfig": {
         "extends": "react-app"

@@ -1,0 +1,52 @@
+.container {
+    height: 100%;
+    margin-top: 20px;
+}
+
+.introduceContainer {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 40px;
+    display: flex;
+}
+
+.imageArea {
+    flex: 1;
+}
+
+.movieTextArea {
+    width: 50%;
+    flex: 2;
+}
+
+.imageArea img {
+    height: 500px;
+}
+
+.movieTitle {
+    margin-bottom: 10px;
+    font-size: 30px;
+}
+
+.movieStatus {
+    color: darkgray;
+    font-size: 25px;
+}
+
+.movieOverView {
+    font-size: 20px;
+}
+
+.movieInfoList {
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+.movieInfoList li {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.movieInfoList li span {
+    margin-right: 10px;
+}

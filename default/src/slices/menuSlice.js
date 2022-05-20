@@ -1,8 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 export const menuSlice = createSlice({
-    name: "menu",
-    initialState: { menu: "" },
+    name: 'menu',
+    initialState: { menu: '' },
     reducers: {
         setMenu: (state, { payload }) => {
             state.menu = payload.menu;

@@ -1,0 +1,21 @@
+@use '/src/styles/abstracts/variables' as *;
+
+@mixin NotoLight {
+    font-family: $default-font
+    font-weight: 300;
+}
+
+@mixin NotoRegular {
+    font-family: $default-font
+    font-weight: 400;
+}
+
+@mixin NotoMedium {
+    font-family: $default-font
+    font-weight: 500;
+}
+
+@mixin NotoBold {
+    font-family: $default-font
+    font-weight: 700;
+}

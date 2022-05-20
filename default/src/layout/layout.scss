@@ -1,0 +1,21 @@
+@use '/src/styles/abstracts/variables' as *;
+
+.layout {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 80px 1fr 100px;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    grid-row: 2/-2;
+}
+
+.main__contents {
+    max-width: $contents-width;
+    height: 100%;
+    padding-top: 20px;
+    margin: 0 auto;
+}
