@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import Layout from 'layout';
+import Layout from 'layouts/Layout';
 import Page404 from 'pages/404';
 import Detail from 'pages/Detail';
 import Home from 'pages/Home';

@@ -3,7 +3,7 @@ import 'pages/404/page404.scss';
 const Page404 = () => {
     return (
         <div className="container">
-            <p>404 NOT FOUND</p>
+            <h1>PAGE NOT FOUND</h1>
         </div>
     );
 };

@@ -1,5 +1,3 @@
-const login = () => {
-    return <div>login</div>;
-};
-
-export default login;
+export default function Login() {
+    return <div>Login</div>;
+}

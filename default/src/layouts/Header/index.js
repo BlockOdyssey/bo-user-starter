@@ -5,7 +5,7 @@ import { setOpen } from 'slices/modalSlice';
 
 import Logo from 'assets/images/logo.png';
 
-import './header.scss';
+import 'layouts/Header/header.scss';
 
 export default function Header() {
     const dispatch = useDispatch();
