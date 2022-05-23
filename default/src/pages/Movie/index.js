@@ -4,5 +4,5 @@ import 'pages/Movie/movie.scss';
 // 컴포넌트들 간의 layout을 설정하기 위한 css만 입력합니다.
 // 또한 api 요청의 경우 페이지의 상단에서 선언하고 자식 컴포넌트에 전달합니다.
 export default function Movie() {
-    return <div className="container">Movie</div>;
+    return <div className="movie-container">Movie</div>;
 }

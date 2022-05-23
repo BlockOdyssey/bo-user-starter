@@ -1,4 +1,5 @@
-.container {
-    height: 300px;
-    margin-top: 20px;
+@use '/src/styles/abstracts/mixins' as *;
+
+.movie-container {
+    @include base-container;
 }

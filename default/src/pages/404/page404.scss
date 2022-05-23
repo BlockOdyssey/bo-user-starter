@@ -1,6 +1,5 @@
-.container {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+@use '/src/styles/abstracts/mixins' as *;
+
+.page404-container {
+    @include base-container;
 }

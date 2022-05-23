@@ -14,7 +14,7 @@ const imageList = {
     }
 };
 
-const Movies = ({ label, isLoading }) => {
+function Movies({ isLoading, label }) {
     const { images, url } = imageList[label];
 
     return (
@@ -41,11 +41,11 @@ const Movies = ({ label, isLoading }) => {
             )}
         </section>
     );
-};
+}
 
 Movies.propTypes = {
-    label: PropTypes.string.isRequired,
-    isLoading: PropTypes.bool.isRequired
+    isLoading: PropTypes.bool.isRequired,
+    label: PropTypes.string.isRequired
 };
 
 export default Movies;
