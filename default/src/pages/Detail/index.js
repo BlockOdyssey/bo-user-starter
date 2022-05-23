@@ -40,29 +40,29 @@ export default function Detail() {
     const movieLoading = false;
 
     return movieLoading ? (
-        <div className={style['movie__data-loading']}>Loading...</div>
+        <div className={style.dataLoading}>Loading...</div>
     ) : (
         <div className={style.movie}>
-            <img className={style.movie__image} width="100%" height={500} src={movieData.poster_path} alt="poster" />
-            <section className={style.movie__info}>
-                <h2 className={style.movie__title}>
-                    {movieData.original_title} <small className={style.movie__status}>[{movieData.status}]</small>
+            <img className={style.image} width="100%" height={500} src={movieData.poster_path} alt="poster" />
+            <section className={style.info}>
+                <h2 className={style.title}>
+                    {movieData.original_title} <small className={style.status}>[{movieData.status}]</small>
                 </h2>
-                <ul className={style.movie__list}>
-                    <li className={style['movie__list-item']}>
-                        <span className={style.movie__category}>평점 :</span>
+                <ul className={style.list}>
+                    <li className={style.listItem}>
+                        <span className={style.category}>평점 :</span>
                         <span>{movieData.vote_average}</span>
                     </li>
-                    <li className={style['movie__list-item']}>
-                        <span className={style.movie__category}>상영 시간 :</span>
+                    <li className={style.listItem}>
+                        <span className={style.category}>상영 시간 :</span>
                         <span>{movieData.runtime}</span>
                     </li>
-                    <li className={style['movie__list-item']}>
-                        <span className={style.movie__category}>상영일자 :</span>
+                    <li className={style.listItem}>
+                        <span className={style.category}>상영일자 :</span>
                         <span>{movieData.release_date}</span>
                     </li>
                 </ul>
-                <p className={style.movie__overview}>{movieData.overview}</p>
+                <p className={style.overview}>{movieData.overview}</p>
             </section>
         </div>
     );

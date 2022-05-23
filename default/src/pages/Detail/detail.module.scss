@@ -8,50 +8,50 @@
     column-gap: 50px;
 }
 
-.movie__data-loading {
+.dataLoading {
     @include data-loading;
 
     font-size: 28px;
 }
 
-.movie__image {
+.image {
     flex: 1;
 }
 
-.movie__info {
+.info {
     height: 500px;
     flex: 2;
 }
 
-.movie__title {
+.title {
     margin-bottom: 10px;
     font-size: 32px;
     font-weight: 700;
 }
 
-.movie__status {
+.status {
     color: darkgray;
     font-size: 24px;
 }
 
-.movie__list {
+.list {
     margin-top: 40px;
     font-size: 20px;
 }
 
-.movie__list-item {
+.listItem {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
     column-gap: 10px;
 }
 
-.movie__category {
+.category {
     font-size: smaller;
     font-weight: 700;
 }
 
-.movie__overview {
+.overview {
     font-size: 16px;
     line-height: 20px;
     letter-spacing: 1px;

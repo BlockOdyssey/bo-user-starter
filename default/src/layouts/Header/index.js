@@ -13,26 +13,26 @@ export default function Header() {
     return (
         <>
             <header className={style.header}>
-                <div className={style.header__contents}>
+                <div className={style.contents}>
                     <Link to="/">
-                        <h1 className={style['header__page-title']}>
-                            <img width="100%" className={style.header__logo} src={Logo} alt="BlockOdyssey" />
+                        <h1 className={style.pageTitle}>
+                            <img width="100%" className={style.logo} src={Logo} alt="BlockOdyssey" />
                         </h1>
                     </Link>
-                    <nav className={style.header__navigation}>
-                        <ul className={style['header__navigation-list']}>
-                            <li className={style['header__navigation-item']}>
+                    <nav className={style.navigation}>
+                        <ul className={style.list}>
+                            <li className={style.listItem}>
                                 <Link to="/movie">Movie</Link>
                             </li>
-                            <li className={style['header__navigation-item']}>
+                            <li className={style.listItem}>
                                 <Link to="/tv">TV</Link>
                             </li>
-                            <li className={style['header__navigation-item']}>
+                            <li className={style.listItem}>
                                 <Link to="/search">Search</Link>
                             </li>
                         </ul>
                     </nav>
-                    <button className={style['header__login-button']} type="button" onClick={() => dispatch(setOpen())}>
+                    <button className={style.loginButton} type="button" onClick={() => dispatch(setOpen())}>
                         Login
                     </button>
                 </div>

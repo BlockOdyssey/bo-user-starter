@@ -5,7 +5,7 @@
     margin: 20px 0 100px;
 }
 
-.category__title {
+.title {
     margin-bottom: 20px;
     line-height: 32px;
     display: flex;
@@ -22,14 +22,14 @@
     }
 }
 
-.category__data-loading {
+.dataLoading {
     @include data-loading;
 
     min-height: 200px;
     font-size: 14px;
 }
 
-.category__list {
+.list {
     padding-bottom: 20px;
     display: flex;
     column-gap: 20px;
@@ -58,11 +58,11 @@
     }
 }
 
-.category__figure {
+.imageContainer {
     width: 200px;
 }
 
-.category__figcaption {
+.imageCaption {
     width: 100%;
     margin-top: 20px;
     font-size: 14px;

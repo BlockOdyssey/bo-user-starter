@@ -11,7 +11,7 @@ export default function Layout() {
         <div className={style.layout}>
             <Header />
             <main className={style.main}>
-                <div className={style.main__contents}>
+                <div className={style.contents}>
                     <Outlet />
                 </div>
             </main>

@@ -19,20 +19,20 @@ function Movies({ isLoading, label }) {
 
     return (
         <section className={style.category}>
-            <div className={style.category__title}>
+            <div className={style.title}>
                 <h2>{label}</h2>
                 <Link to="/movies">+ More</Link>
             </div>
             {isLoading ? (
-                <div className={style['category__data-loading']}>Loading...</div>
+                <div className={style.dataLoading}>Loading...</div>
             ) : (
-                <ul className={style.category__list}>
+                <ul className={style.list}>
                     {images.map((e) => (
                         <li key={e}>
                             <Link to={`/movie/${e}`}>
-                                <figure className={style.category__figure}>
+                                <figure className={style.imageContainer}>
                                     <img width="100%" src={`${url}${e}`} alt="Lorem Picsum" />
-                                    <figcaption className={style.category__figcaption}>{e}번째 영화</figcaption>
+                                    <figcaption className={style.imageCaption}>{e}번째 영화</figcaption>
                                 </figure>
                             </Link>
                         </li>

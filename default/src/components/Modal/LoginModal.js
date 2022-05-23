@@ -33,32 +33,32 @@ export default function LoginModal() {
     return (
         <Modal isOpen={modalOpen} style={customStyles}>
             <section className={style.login}>
-                <header className={style.login__header}>
-                    <h2 className={style.login__title}>로그인</h2>
+                <header className={style.header}>
+                    <h2 className={style.pageTitle}>로그인</h2>
                     <button
                         aria-label="close button"
-                        className={style['login__close-button']}
+                        className={style.closeButton}
                         type="button"
                         onClick={() => dispatch(setClose())}
                     >
                         X
                     </button>
                 </header>
-                <form className={style.login__form} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+                <form className={style.loginForm} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
                     <input
                         {...register('userId', { required: true })}
                         type="email"
                         placeholder="아이디"
-                        className={style.login__input}
+                        className={style.loginInput}
                     />
                     <input
                         {...register('userPw', { required: true })}
                         type="password"
                         placeholder="비밀번호"
-                        className={style.login__input}
+                        className={style.loginInput}
                     />
                     {result && <p>{result}</p>}
-                    <input className={style['login__submit-button']} type="submit" value="로그인" />
+                    <input className={style.submitButton} type="submit" value="로그인" />
                 </form>
             </section>
         </Modal>

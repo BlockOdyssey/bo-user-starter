@@ -9,7 +9,7 @@
     grid-row: 3/-1;
 }
 
-.footer__contents {
+.contents {
     max-width: $contents-width;
     height: 100%;
     margin: 0 auto;
@@ -24,7 +24,7 @@
     }
 }
 
-.footer__left {
+.footerLeft {
     width: 100%;
     display: flex;
     align-items: center;
@@ -35,7 +35,7 @@
     }
 }
 
-.footer__right {
+.footerRight {
     width: 100%;
     display: flex;
     align-items: center;
