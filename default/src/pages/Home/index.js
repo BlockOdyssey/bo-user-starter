@@ -1,8 +1,9 @@
 import { useQuery } from 'react-query';
 
 import { getData, API_KEY } from 'api';
-import 'pages/Home/home.scss';
 import Movies from 'pages/Home/components/Movies';
+
+import 'pages/Home/home.scss';
 
 // 페이지의 index 컴포넌트에선(여기선 home.js) 페이지에 필요한 컴포넌트를 import  하고
 // 컴포넌트들 간의 layout을 설정하기 위한 css만 입력합니다.
@@ -33,8 +34,8 @@ const Home = () => {
 
     return (
         <>
-            <Movies label="Now Playing" isLoading={false} data={nowPlayingListData} />
-            <Movies label="Popular List" isLoading={false} data={popularListData} />
+            <Movies label="Now Playing" isLoading={nowPlayingListIsLoading} data={nowPlayingListData} />
+            <Movies label="Popular List" isLoading={popularListIsLoading} data={popularListData} />
         </>
     );
 };

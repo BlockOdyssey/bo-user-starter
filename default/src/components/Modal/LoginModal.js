@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setClose } from 'slices/modalSlice';
 
+import 'components/Modal/loginModal.scss';
+
 Modal.defaultStyles.overlay.zIndex = 9999;
 
 const customStyles = {
@@ -18,6 +20,7 @@ const customStyles = {
         height: 400
     }
 };
+
 export default function LoginModal() {
     const dispatch = useDispatch();
     const { modalOpen } = useSelector((state) => state.modal);
@@ -34,7 +37,7 @@ export default function LoginModal() {
                     <h2 className="login__title">로그인</h2>
                     <button
                         aria-label="close button"
-                        className="close-button"
+                        className="login__close-button"
                         type="button"
                         onClick={() => dispatch(setClose())}
                     >
@@ -55,7 +58,7 @@ export default function LoginModal() {
                         className="login__input"
                     />
                     {result && <p>{result}</p>}
-                    <input className="login__submit" type="submit" value="로그인" />
+                    <input className="login__submit-button" type="submit" value="로그인" />
                 </form>
             </section>
         </Modal>

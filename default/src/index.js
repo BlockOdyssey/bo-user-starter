@@ -12,7 +12,6 @@ import '@fontsource/noto-sans-kr/300.css'; // Light
 import '@fontsource/noto-sans-kr/400.css'; // Regular
 import '@fontsource/noto-sans-kr/500.css'; // Medium
 import '@fontsource/noto-sans-kr/700.css'; // Bold
-
 import 'styles/main.scss';
 
 const queryClient = new QueryClient({

@@ -15,24 +15,24 @@ export default function Header() {
             <header className="header">
                 <div className="header__contents">
                     <Link to="/">
-                        <h1 className="logo">
-                            <img width="100%" className="logo__image" src={Logo} alt="BlockOdyssey" />
+                        <h1 className="header__page-title">
+                            <img width="100%" className="header__logo" src={Logo} alt="BlockOdyssey" />
                         </h1>
                     </Link>
-                    <nav className="navigation">
-                        <ul className="navigation__list">
-                            <li className="navigation__item">
+                    <nav className="header__navigation">
+                        <ul className="header__navigation-list">
+                            <li className="header__navigation-item">
                                 <Link to="/movie">Movie</Link>
                             </li>
-                            <li className="navigation__item">
+                            <li className="header__navigation-item">
                                 <Link to="/tv">TV</Link>
                             </li>
-                            <li className="navigation__item">
+                            <li className="header__navigation-item">
                                 <Link to="/search">Search</Link>
                             </li>
                         </ul>
                     </nav>
-                    <button className="login-button" type="button" onClick={() => dispatch(setOpen())}>
+                    <button className="header__login-button" type="button" onClick={() => dispatch(setOpen())}>
                         Login
                     </button>
                 </div>

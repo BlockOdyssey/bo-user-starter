@@ -55,13 +55,18 @@ module.exports = {
                         position: 'after'
                     },
                     {
-                        pattern: 'styles/**',
+                        pattern: 'utils/**',
                         group: 'internal',
                         position: 'after'
                     },
                     {
-                        pattern: 'utils/**',
-                        group: 'internal',
+                        pattern: '*.+(css|scss)',
+                        patternOptions: {
+                            dot: true,
+                            nocomment: true,
+                            matchBase: true
+                        },
+                        group: 'object',
                         position: 'after'
                     }
                 ],
@@ -70,7 +75,8 @@ module.exports = {
                 alphabetize: {
                     order: 'asc',
                     caseInsensitive: true
-                }
+                },
+                warnOnUnassignedImports: true
             }
         ],
         'react/jsx-filename-extension': ['warn', { extensions: ['.js', '.jsx'] }],
