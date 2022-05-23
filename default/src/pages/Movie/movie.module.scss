@@ -1,5 +1,5 @@
 @use '/src/styles/abstracts/mixins' as *;
 
-.movie-container {
+.container {
     @include base-container;
 }

@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import { getData, API_KEY } from 'api';
 
-import 'pages/Detail/detail.scss';
+import style from 'pages/Detail/detail.module.scss';
 
 const movieData = {
     poster_path: 'https://picsum.photos/300/300',
@@ -40,29 +40,29 @@ export default function Detail() {
     const movieLoading = false;
 
     return movieLoading ? (
-        <div className="movie__data-loading">Loading...</div>
+        <div className={style['movie__data-loading']}>Loading...</div>
     ) : (
-        <div className="movie">
-            <img className="movie__image" width="100%" height={500} src={movieData.poster_path} alt="poster" />
-            <section className="movie__info">
-                <h2 className="movie__title">
-                    {movieData.original_title} <small className="movie__status">[{movieData.status}]</small>
+        <div className={style.movie}>
+            <img className={style.movie__image} width="100%" height={500} src={movieData.poster_path} alt="poster" />
+            <section className={style.movie__info}>
+                <h2 className={style.movie__title}>
+                    {movieData.original_title} <small className={style.movie__status}>[{movieData.status}]</small>
                 </h2>
-                <ul className="movie__list">
-                    <li className="movie__list-item">
-                        <span className="movie__category">평점 :</span>
+                <ul className={style.movie__list}>
+                    <li className={style['movie__list-item']}>
+                        <span className={style.movie__category}>평점 :</span>
                         <span>{movieData.vote_average}</span>
                     </li>
-                    <li className="movie__list-item">
-                        <span className="movie__category">상영 시간 :</span>
+                    <li className={style['movie__list-item']}>
+                        <span className={style.movie__category}>상영 시간 :</span>
                         <span>{movieData.runtime}</span>
                     </li>
-                    <li className="movie__list-item">
-                        <span className="movie__category">상영일자 :</span>
+                    <li className={style['movie__list-item']}>
+                        <span className={style.movie__category}>상영일자 :</span>
                         <span>{movieData.release_date}</span>
                     </li>
                 </ul>
-                <p className="movie__overview">{movieData.overview}</p>
+                <p className={style.movie__overview}>{movieData.overview}</p>
             </section>
         </div>
     );

@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setClose } from 'slices/modalSlice';
 
-import 'components/Modal/loginModal.scss';
+import style from 'components/Modal/loginModal.module.scss';
 
 Modal.defaultStyles.overlay.zIndex = 9999;
 
@@ -32,33 +32,33 @@ export default function LoginModal() {
 
     return (
         <Modal isOpen={modalOpen} style={customStyles}>
-            <section className="login">
-                <header className="login__header">
-                    <h2 className="login__title">로그인</h2>
+            <section className={style.login}>
+                <header className={style.login__header}>
+                    <h2 className={style.login__title}>로그인</h2>
                     <button
                         aria-label="close button"
-                        className="login__close-button"
+                        className={style['login__close-button']}
                         type="button"
                         onClick={() => dispatch(setClose())}
                     >
                         X
                     </button>
                 </header>
-                <form className="login__form" onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
+                <form className={style.login__form} onSubmit={handleSubmit(onSubmit)} noValidate autoComplete="off">
                     <input
                         {...register('userId', { required: true })}
                         type="email"
                         placeholder="아이디"
-                        className="login__input"
+                        className={style.login__input}
                     />
                     <input
                         {...register('userPw', { required: true })}
                         type="password"
                         placeholder="비밀번호"
-                        className="login__input"
+                        className={style.login__input}
                     />
                     {result && <p>{result}</p>}
-                    <input className="login__submit-button" type="submit" value="로그인" />
+                    <input className={style['login__submit-button']} type="submit" value="로그인" />
                 </form>
             </section>
         </Modal>

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
-import 'pages/Home/components/Movies/movies.scss';
+import style from 'pages/Home/components/Movies/movies.module.scss';
 
 const imageList = {
     'Now Playing': {
@@ -18,21 +18,21 @@ function Movies({ isLoading, label }) {
     const { images, url } = imageList[label];
 
     return (
-        <section className="category">
-            <div className="category__title">
+        <section className={style.category}>
+            <div className={style.category__title}>
                 <h2>{label}</h2>
                 <Link to="/movies">+ More</Link>
             </div>
             {isLoading ? (
-                <div className="category__data-loading">Loading...</div>
+                <div className={style['category__data-loading']}>Loading...</div>
             ) : (
-                <ul className="category__list">
+                <ul className={style.category__list}>
                     {images.map((e) => (
                         <li key={e}>
                             <Link to={`/movie/${e}`}>
-                                <figure className="category__figure">
+                                <figure className={style.category__figure}>
                                     <img width="100%" src={`${url}${e}`} alt="Lorem Picsum" />
-                                    <figcaption className="category__figcaption">{e}번째 영화</figcaption>
+                                    <figcaption className={style.category__figcaption}>{e}번째 영화</figcaption>
                                 </figure>
                             </Link>
                         </li>

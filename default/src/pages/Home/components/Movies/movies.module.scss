@@ -1,0 +1,71 @@
+@use '/src/styles/abstracts/variables' as *;
+@use '/src/styles/abstracts/mixins' as *;
+
+.category {
+    margin: 20px 0 100px;
+}
+
+.category__title {
+    margin-bottom: 20px;
+    line-height: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & h2 {
+        font-size: 32px;
+        font-weight: 700;
+    }
+
+    & a:hover {
+        transform: scale(0.95);
+    }
+}
+
+.category__data-loading {
+    @include data-loading;
+
+    min-height: 200px;
+    font-size: 14px;
+}
+
+.category__list {
+    padding-bottom: 20px;
+    display: flex;
+    column-gap: 20px;
+    flex-flow: row nowrap;
+    overflow: hidden;
+    overflow-x: auto;
+
+    /* width */
+    &::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: $primary-color;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: rgb(1 128 246 / 50%);
+    }
+}
+
+.category__figure {
+    width: 200px;
+}
+
+.category__figcaption {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}

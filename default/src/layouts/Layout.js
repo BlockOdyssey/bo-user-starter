@@ -4,14 +4,14 @@ import LoginModal from 'components/Modal/LoginModal';
 import Footer from 'layouts/Footer';
 import Header from 'layouts/Header';
 
-import 'layouts/layout.scss';
+import style from 'layouts/layout.module.scss';
 
 export default function Layout() {
     return (
-        <div className="layout">
+        <div className={style.layout}>
             <Header />
-            <main className="main">
-                <div className="main__contents">
+            <main className={style.main}>
+                <div className={style.main__contents}>
                     <Outlet />
                 </div>
             </main>
