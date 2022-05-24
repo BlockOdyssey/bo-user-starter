@@ -1,7 +1,9 @@
 import { useQuery } from 'react-query';
 
-import { getData, API_KEY } from 'api';
+import { getData } from 'api';
 import Movies from 'pages/Home/components/Movies';
+
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 // import style from 'pages/Home/home.module.scss';
 
@@ -14,29 +16,28 @@ export default function Home() {
         'getMovieNowPlayingList',
         () =>
             getData(`3/movie/now_playing`, {
-                API_KEY,
+                api_key: API_KEY,
                 page: 1
             }),
-        { select: (res) => res.results }
+        {
+            select: (res) => res.data.results
+        }
     );
 
     const { data: popularListData, isLoading: popularListIsLoading } = useQuery(
         'getMoviePopularList',
         () =>
             getData(`3/movie/popular`, {
-                API_KEY,
+                api_key: API_KEY,
                 page: 1
             }),
-        { select: (res) => res.results }
+        { select: (res) => res.data.results }
     );
-
-    console.log(nowPlayingListData, nowPlayingListIsLoading);
-    console.log(popularListData, popularListIsLoading);
 
     return (
         <>
-            <Movies label="Now Playing" isLoading={nowPlayingListIsLoading} data={nowPlayingListData} />
-            <Movies label="Popular List" isLoading={popularListIsLoading} data={popularListData} />
+            <Movies label="Now Playing" isLoading={nowPlayingListIsLoading} movieData={nowPlayingListData ?? []} />
+            <Movies label="Popular List" isLoading={popularListIsLoading} movieData={popularListData ?? []} />
         </>
     );
 }
